@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-title-section overlay" data-background="https://images.pexels.com/photos/13509819/pexels-photo-13509819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="">All Players</a></li>
+          <li class="list-inline-item text-white h3 font-secondary"></li>
+        </ul>
+        <p class="text-lighten"></p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+<div class="row justify-content-center">
+  {% for i in players %}
+  <div class="col-lg-3 col-sm-6 mb-5">
+    <div class="card p-0 border-primary rounded-0 hover-shadow">
+      <img class="card-img-top rounded-0" src="{{i.img.url}}" alt="course thumb">
+      <div class="card-body">
+        <ul class="list-inline mb-2">
+          <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>{{i.gameplay}}</li>
+          <li class="list-inline-item"><a class="text-color" href="#">{{i.role}}</a></li>
+        </ul>
+        <a href="{% url "players_details" i.id %}">
+          <h4 class="card-title">{{i.name}}</h4>
+        </a>
+        <p class="card-text mb-4"></p>
+        <a href="{% url "players_details" i.id %}" class="btn btn-primary btn-sm">Details</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+  </div>
+</section>
+{% endblock content %}

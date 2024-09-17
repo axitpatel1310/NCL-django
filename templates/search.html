@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-title-section overlay" data-background="https://images.pexels.com/photos/5519470/pexels-photo-5519470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="">Player</a></li>
+        </ul>
+        <p class="text-lighten">Welcome To NVPAS players</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mb-4">
+      </div>
+    </div>
+    <div class="row align-items-center mb-5">
+    <div class="row">
+      <div class="col-12 mb-4">
+        <form method="get" action="{% url 'search-player' %}">
+          {{ form.as_p }}
+          <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <table border="3" style="width: 100%; border-collapse: collapse;">
+        <tr>
+          <td style="padding: 10px;">
+            <b>Player ID:</b>
+          </td>
+          <td style="padding: 10px;">
+            <b>Player Name:</b>
+          </td>
+          <td style="padding: 10px;">
+            <b>Gameplay:</b>
+          </td>
+          <td style="padding: 10px;">
+            <b>Class:</b>
+          </td>
+        </tr>
+        {% for i in all_players %}
+        <tr>
+          <td style="padding: 10px;">
+            {{i.id}}
+          </td>
+          <td style="padding: 10px;">
+            {{i.name}}
+          </td>
+          <td style="padding: 10px;">
+            {{i.gameplay}}
+          </td>
+          <td style="padding: 10px;">
+            {{i.from_class}}
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock content %}

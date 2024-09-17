@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section class="page-title-section overlay" data-background="https://images.pexels.com/photos/27907317/pexels-photo-27907317/free-photo-of-cricket.jpeg?auto=compress&cs=tinysrgb&w=600">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="">Admin</a></li>
+          <li class="list-inline-item text-white h3 font-secondary nasted">Assign PLayers To Team</li>
+        </ul>
+        <p class="text-lighten"></p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section-sm bg-gray">
+  <div class="container">
+    <div class="col-12 mb-5">
+      <h2>Bidding for {{ player.name }}</h2>
+    </div>
+    <div class="col-12">
+      <form method="post">
+        {% csrf_token %}
+        <div>
+          <label>{{ form.team.label }}</label>
+        {{ form.team }}
+        </div>
+        <div>
+          <label>{{ form.price.label }}</label>
+          {{ form.price }}
+        </div>
+        <button type="submit">Sell Player</button>
+      </form>      
+    <br>
+    </div>
+  </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-title-section overlay" data-background="https://images.pexels.com/photos/3718433/pexels-photo-3718433.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="">Player </a></li>
+          <li class="list-inline-item text-white h3 font-secondary nasted">{{player.name}}</li>
+        </ul>
+        <p class="text-lighten">Welcome To NVPAS player {{player.name}} Portfolio</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mb-4">
+        <img src="{{player.img.url}}" style="width:5%;" class="img-fluid w-50">
+      </div>
+    </div>
+    <div class="row align-items-center mb-5">
+      <div class="col-xl-3 order-1 col-sm-6 mb-4 mb-xl-0">
+        <h2>{{player.name}}</h2>
+      </div>
+      <div class="col-xl-6 order-sm-3 order-xl-2 col-12 order-2">
+        <ul class="list-inline text-xl-center">
+          <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+            <div class="d-flex align-items-center">
+              <div class="text-left">
+                <h3 class="mb-0">Gameplay</h6>
+                <p class="mb-0">{{player.gameplay}}</p>
+              </div>
+            </div>
+          </li>
+          <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+            <div class="d-flex align-items-center">
+              <div class="text-left">
+                <h3 class="mb-0">Class</h6>
+                <p class="mb-0">{{player.from_class}}</p>
+              </div>
+            </div>
+          </li>
+            {% if player.team %}
+            <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+            <div class="d-flex align-items-center">
+              <div class="text-left">
+                <h3 class="mb-0">Sold To</h6>
+                <p class="mb-0">{{player.team.team_name}}</p>
+              </div>
+            </div>
+          </li>
+            {% endif %}
+        </ul>
+      </div>
+      {% if user.is_superuser %}
+      <div class="col-xl-3 text-sm-right text-left order-sm-2 order-3 order-xl-3 col-sm-6 mb-4 mb-xl-0">
+        <a href="{% url "sales" player.id %}" class="btn btn-primary">Sell</a>
+      </div>
+      {% endif %}
+      <div class="col-12 mt-4 order-4">
+        <div class="border-bottom border-primary"></div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

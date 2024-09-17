@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section class="hero-section overlay bg-cover" data-background="https://images.pexels.com/photos/9828008/pexels-photo-9828008.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+  <div class="container">
+    <div class="hero-slider">
+      {% if user.is_authenticated %}
+      <div class="hero-slider-item">
+        <div class="row">
+          <div class="col-md-8">
+            <h1 class="text-white" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".1">
+              Caption {{request.user.username}} welcome to NCL Auction
+            </h1>
+            <p class="text-muted mb-4" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".4">
+              Witness the ultimate showdown as teams compete for glory in the most thrilling cricket league of the year. Who will rise to claim the NCL trophy?
+            </p>
+            <a href="{% url "players" %}" class="btn btn-primary" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".7">All Players</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-slider-item">
+        <div class="row">
+          <div class="col-md-8">
+            <h1 class="text-white" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".1">NCL 2024: Battle for Cricket Supremacy</h1>
+            <p class="text-muted mb-4" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".4">
+              Witness the ultimate showdown as teams compete for glory in the most thrilling cricket league of the year. Who will rise to claim the NCL trophy?
+            </p>
+            <a href="{% url "players" %}" class="btn btn-primary" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".7">All Players</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-slider-item">
+        <div class="row">
+          <div class="col-md-8">
+            <h1 class="text-white" data-animation-out="fadeOutUp" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".1">
+              Nvpas Cricket League: Where Legends are Made</h1>
+            <p class="text-muted mb-4" data-animation-out="fadeOutUp" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".4">
+              Get ready for high-octane action, spectacular performances, and unforgettable moments. The NCL is where future cricket legends take the stage
+            </p>
+            <a href="{% url "players" %}" class="btn btn-primary" data-animation-out="fadeOutUp" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".7">All Players</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-slider-item">
+        <div class="row">
+          <div class="col-md-8">
+            <h1 class="text-white" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">
+              NCL Championship: The Heartbeat of Cricket
+            </h1>
+            <p class="text-muted mb-4" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".4">
+              Experience the passion, the rivalry, and the sheer excitement as teams from all over clash in the Nvpas Cricket League – the tournament that keeps fans on the edge of their seats.
+            </p>
+            <a href="{% url "players" %}" class="btn btn-primary" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="zoomIn" data-delay-in=".7">All Players</a>
+          </div>
+        </div>
+      </div>
+      {% else %}
+      <div class="hero-slider-item">
+        <div class="row">
+          <div class="col-md-8">
+            <h1 class="text-white" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".1">
+              Login Kal Leh Lale... Khel Shuru Hone Ko Hai
+            </h1>
+            <p class="text-muted mb-4" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".4">
+              Caption Make Sure To Login Before You Carry Forward....!!!!
+            </p>
+            <a href="{% url "login" %}" class="btn btn-primary" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".7">Login</a>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+<section class="bg-gray">
+  <div class="container-fluid p-0">
+    <div class="row no-gutters">
+      <div class="col-xl-8 col-lg-7">
+        <div class="row feature-blocks bg-gray justify-content-between">
+          <div class="col-sm-6 col-xl-5 mb-xl-5 mb-lg-3 mb-4 text-center text-sm-left">
+            <i class="ti-book mb-xl-4 mb-lg-3 mb-4 feature-icon"></i>
+            <h3 class="mb-xl-4 mb-lg-3 mb-4">Our Mission</h3>
+            <p>
+              Our mission is to bring together cricket enthusiasts from all walks of life, 
+              promoting sportsmanship, teamwork, and a love for the game. 
+              The Nvpas Cricket League (NCL) aims to provide a platform for 
+              emerging talent while fostering community spirit through the sport we all cherish
+            </p>
+          </div>
+          <div class="col-sm-6 col-xl-5 mb-xl-5 mb-lg-3 mb-4 text-center text-sm-left">
+            <i class="ti-blackboard mb-xl-4 mb-lg-3 mb-4 feature-icon"></i>
+            <h3 class="mb-xl-4 mb-lg-3 mb-4">Our Journey</h3>
+            <p>
+              The NCL began with a passion for cricket and a vision to create a tournament 
+              where players could showcase their skills and compete at a high level. 
+              Over the years, it has grown into one of the most anticipated local cricket events, 
+              attracting teams and fans from across the region
+            </p>
+          </div>
+          <div class="col-sm-6 col-xl-5 mb-xl-5 mb-lg-3 mb-4 text-center text-sm-left">
+            <i class="ti-agenda mb-xl-4 mb-lg-3 mb-4 feature-icon"></i>
+            <h3 class="mb-xl-4 mb-lg-3 mb-4">Our Values</h3>
+            <p>
+              At NCL, we believe in fair play, integrity, and excellence. 
+              We are committed to maintaining a competitive yet respectful 
+              environment where every player and team has the opportunity to 
+              shine and inspire others
+            </p>
+          </div>
+          <div class="col-sm-6 col-xl-5 mb-xl-5 mb-lg-3 mb-4 text-center text-sm-left">
+            <i class="ti-write mb-xl-4 mb-lg-3 mb-4 feature-icon"></i>
+            <h3 class="mb-xl-4 mb-lg-3 mb-4">Our Future</h3>
+            <p>
+              As we look ahead, NCL aims to expand its reach, inviting even more 
+              teams and fans to participate in this exciting cricket journey. 
+              We’re dedicated to nurturing future stars of the sport and creating 
+              unforgettable memories for everyone involved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+  <meta charset="utf-8">
+  <title>NCL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="{% static "plugins/bootstrap/bootstrap.min.css" %}">
+  <link rel="stylesheet" href="{% static "plugins/slick/slick.css" %}">
+  <link rel="stylesheet" href="{% static "plugins/themify-icons/themify-icons.css" %}">
+  <link rel="stylesheet" href="{% static "plugins/animate/animate.css" %}">
+  <link rel="stylesheet" href="{% static "plugins/aos/aos.css" %}">
+  <link rel="stylesheet" href="{% static "plugins/venobox/venobox.css" %}">
+  <link href="{% static "css/style.css" %}" rel="stylesheet">
+</head>
+<body>
+<header class="fixed-top header">
+  <div class="navigation w-100">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <h2>N-C-L</h2>
+        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item @@about">
+              <a class="nav-link" href="{% url "search-player" %}">Search</a>
+            </li>
+            <li class="nav-item @@about">
+              <a class="nav-link" href="{% url "players" %}">Players</a>
+            </li>
+            <li class="nav-item @@courses">
+              <a class="nav-link" href="{% url "team" %}">Teams</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item @@contact">
+              <a class="nav-link">{{request.user}}</a>
+            </li>
+            
+            <li class="nav-item @@contact">
+              <a class="nav-link" href="{% url "logout" %}">Logout</a>
+            </li>
+
+            {% else %}
+            <li class="nav-item @@contact">
+              <a class="nav-link" href="{% url "login" %}">Login</a>
+            </li>
+            
+            {% endif %}
+            
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+{% block content %}
+{% endblock content %}
+
+<footer>
+    <div class="footer bg-footer border-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-sm-6 mb-2 mb-lg-0">
+            <a class="logo-footer" href="">
+              <h1>N-C-L</h1>
+            </a>
+            <ul class="list-unstyled">
+              <li class="mb-2">NVPAS AUCTION SYSTEM</li>
+              <li class="mb-2">2024</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="{% static "plugins/jQuery/jquery.min.js" %}"></script>
+  <script src="{% static "plugins/bootstrap/bootstrap.min.js" %}"></script>
+  <script src="{% static "plugins/slick/slick.min.js" %}"></script>
+  <script src="{% static "plugins/aos/aos.js" %}"></script>
+  <script src="{% static "plugins/venobox/venobox.min.js" %}"></script>
+  <script src="{% static "plugins/mixitup/mixitup.min.js" %}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
+  <script src="{% static "plugins/google-map/gmap.js" %}"></script>
+  <script src="{% static "js/script.js" %}"></script>  
+  </body>
+  </html>

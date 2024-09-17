@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section class="page-title-section overlay" data-background="https://images.pexels.com/photos/13509631/pexels-photo-13509631.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="">All Team</a></li>
+          <li class="list-inline-item text-white h3 font-secondary nasted"></li>
+        </ul>
+        <p class="text-lighten"></p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12" style="border-radius:20px;">
+        <div class="d-flex">
+          <div class="text-center mr-4">
+            <div style="height:100%;" class="p-4 bg-primary text-white">
+                <span class="h2 d-block">{{team.id}}</span>
+            </div>
+          </div>
+          <div>
+            <h3 style="margin-top: 10px;" class="mb-4">{{team.team_name}}</h3>
+            <p>{{team.description|safe}}</p>
+            <br>
+            <br>
+            <h4>Players</h4>
+            <ul class="list-styled mb-5">
+            {% for i in players %}
+            <li><a href="{% url "players_details" i.id %}">{{i.name}}</a></li>
+            {% endfor %}  
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section class="page-title-section overlay" data-background="https://images.pexels.com/photos/16062157/pexels-photo-16062157/free-photo-of-man-playing-cricket-in-black-and-white.jpeg?auto=compress&cs=tinysrgb&w=600">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="@@page-link">Team</a></li>
+          <li class="list-inline-item text-white h3 font-secondary @@nasted">{{team.team_name}}</li>
+        </ul>
+        <p class="text-lighten"></p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <ul class="list-unstyled">
+          {% for i in team %}
+          <li class="d-md-table mb-4 w-100 border-bottom hover-shadow">
+            <div class="d-md-table-cell text-center p-4 bg-primary text-white mb-4 mb-md-0">
+              <span class="h2 d-block">{{i.id}}</span>
+            </div>
+            <div class="d-md-table-cell px-4 vertical-align-middle mb-4 mb-md-0">
+              <a href="" class="h4 mb-3 d-block">{{i.team_name}}</a>
+              <p class="mb-0">{{i.caption.user.username}}</p>
+            </div>
+            <div class="d-md-table-cell text-right pr-0 pr-md-4">
+              <a href="{% url "team_details" i.id %}" class="btn btn-primary">Details</a>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

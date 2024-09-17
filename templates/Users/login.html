@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="page-title-section overlay" data-background="{% static "images/banner/6.jpg" %}">
+  <div class="row justify-content-center">
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="pt-4 pb-2">
+            <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
+            <p class="text-center small">Enter your personal details to create account</p>
+          </div>
+          <form class="row g-3 needs-validation" method="POST">
+            {% csrf_token %}
+            <div class="col-12">
+              {% for message in messages  %}
+            <label class="form-label" id="errors">{{message}}</label>
+            {% endfor %}
+            </div>
+            <div class="container">
+            <div class="col-12">
+              {{form.as_p}}
+            </div>
+              <br>
+              <button class="btn btn-primary w-100" type="submit">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}
